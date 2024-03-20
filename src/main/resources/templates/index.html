@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+<style>
+h1 {
+	color: #aaaaaa;
+}
+
+#link {
+	color: #aaaaaa;
+	margin-top:100px;
+	padding:100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 100px;
+}
+#link a{
+color:#ffffaa;
+background-color:black;
+padding: 10px;
+margin:100px;
+border: 10px solid;
+border-bottom-color: red;
+border-bottom-width: 5px;
+
+}
+
+body {
+	background-image: url('image.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+</style>
+</head>
+<body>
+<h1>Welcome to HOME</h1>
+	<div id="link">
+	<h1>
+	<a th:href="@{/registerpage}" >Registration</a>
+    <a th:href="@{/loginpage}">Login</a>
+	</h1>
+	</div>
+	
+
+</body>
+</html>
