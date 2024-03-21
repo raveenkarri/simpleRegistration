@@ -1,5 +1,6 @@
 package com.Raveen.controller;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,14 +35,22 @@ public class HomeController {
 		repo.save(user);
 		return "index";
 		}
+	@GetMapping("/users")
+	public String getAll(Model model){		
+		List<User> user = repo.findAll();
+		model.addAttribute("user",user);
+		return "profile";
+	}
 	@PostMapping("/login")
 	public String login(@ModelAttribute User user,Model model) {
 	Optional<User> userdata = repo.findById(user.getUserName());
-	model.addAttribute("userd",userdata);
+	//model.addAttribute("userd",user);
 	//model.addAttribute("userlname",user.getLastName());
 	//model.addAttribute("username",user.getUserName());
 	if(user.getPassWord().equals(userdata.get().getPassWord())) {
-		
+
+		List<User> users = repo.findAll();
+		model.addAttribute("user",users);
 		return "profile";
 	}else {
 		return "error";
